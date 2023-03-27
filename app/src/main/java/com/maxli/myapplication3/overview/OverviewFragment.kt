@@ -24,6 +24,15 @@ class OverviewFragment: Fragment() {
         binding.viewModel = viewModel
         binding.coinList.adapter = OverViewAdapter()
 
+        binding.refreshLayout.setOnRefreshListener {
+            viewModel.getData()
+        }
+        viewModel.isRefreshing.observe(viewLifecycleOwner){
+            if (it != binding.refreshLayout.isRefreshing) {
+                binding.refreshLayout.isRefreshing = it
+            }
+        }
+
         return binding.root
     }
 }
