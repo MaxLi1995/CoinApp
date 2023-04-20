@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.maxli.myapplication3.data.*
 import com.maxli.myapplication3.databinding.OverviewItemBinding
 
-class OverViewAdapter : ListAdapter<Data, OverViewAdapter.DataViewHolder>(DiffCallback) {
+class OverViewAdapter(private val callBack: (String)->Unit) : ListAdapter<Data, OverViewAdapter.DataViewHolder>(
+    DiffCallback
+) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
@@ -22,11 +24,16 @@ class OverViewAdapter : ListAdapter<Data, OverViewAdapter.DataViewHolder>(DiffCa
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         val data = getItem(position)
         holder.bind(data)
+        holder.itemView.setOnClickListener {
+            callBack(data.id)
+        }
     }
 
     class DataViewHolder(private var binding: OverviewItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Data){
-            binding.data = data
+            binding.name = data.symbol
+            binding.fullName = data.name
+            binding.money = data.getFormattedPrice()
             binding.executePendingBindings()
         }
     }

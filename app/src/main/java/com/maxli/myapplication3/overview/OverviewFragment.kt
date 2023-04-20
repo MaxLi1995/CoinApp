@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
+import com.maxli.myapplication3.R
 import com.maxli.myapplication3.databinding.FragmentOverviewBinding
 
 class OverviewFragment: Fragment() {
@@ -22,7 +24,11 @@ class OverviewFragment: Fragment() {
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
-        binding.coinList.adapter = OverViewAdapter()
+        binding.coinList.adapter = OverViewAdapter { id ->
+            val bundle = Bundle()
+            bundle.putString("id", id)
+            NavHostFragment.findNavController(this)
+            .navigate(R.id.detailFragment, bundle) }
 
         binding.refreshLayout.setOnRefreshListener {
             viewModel.getData()

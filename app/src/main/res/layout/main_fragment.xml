@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout
+    android:background="#18162C"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/titleimg"/>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/home_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/home_title"
+        />
+
+    <TextView
+        android:id="@+id/home_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find your best Crypto Data Here"
+        app:layout_constraintBottom_toTopOf="@id/home_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="56sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        />
+
+    <TextView
+        android:id="@+id/home_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="house to over 100+ cryptocurrency information"
+        app:layout_constraintBottom_toTopOf="@id/home_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="56dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginRight="16dp"
+        />
+
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Begin"
+        android:textColor="@color/black"
+        android:background="@drawable/button_bg"
+        android:elevation="16dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="56dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="32dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout></FrameLayout></layout>
